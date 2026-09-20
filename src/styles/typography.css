@@ -1,0 +1,26 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .type-display-xl, .type-display, .type-h1, .type-h2, .type-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+h1, .type-h1 { font-size: var(--text-h1); line-height: 1.07; letter-spacing: -0.055em; }
+h2, .type-h2 { font-size: var(--text-h2); line-height: 1.12; }
+h3, .type-h3 { font-size: var(--text-h3); line-height: 1.18; letter-spacing: -0.035em; }
+.type-display-xl { font-size: var(--text-display-xl); line-height: 0.88; letter-spacing: -0.075em; }
+.type-display { font-size: var(--text-display); line-height: 0.95; letter-spacing: -0.065em; }
+.type-body-xl { font-size: var(--text-body-xl); line-height: 1.36; letter-spacing: -0.025em; }
+.type-body-large { font-size: var(--text-body-large); line-height: 1.5; letter-spacing: -0.012em; }
+.type-body { font-size: var(--text-body); line-height: 1.65; }
+.type-small { font-size: var(--text-small); line-height: 1.55; }
+.type-label { font-size: var(--text-label); line-height: 1.4; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.type-meta { font-size: var(--text-meta); line-height: 1.5; font-weight: 500; }

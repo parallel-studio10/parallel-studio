@@ -1,0 +1,21 @@
+/* Motion communicates hierarchy or response. It stays subtle, avoids loops and scroll effects,
+   and every control remains usable when transitions are removed. */
+@media (prefers-reduced-motion: no-preference) {
+  a, button {
+    transition: color var(--duration-fast) var(--ease-standard),
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+  .action-arrow { transition: transform var(--duration-base) var(--ease-standard); }
+  :is(a, button):hover .action-arrow,
+  :is(a, button):focus-visible .action-arrow { transform: translate(0.2rem, -0.2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
