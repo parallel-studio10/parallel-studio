@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const storageKey = 'parallel-theme'
 
@@ -11,8 +11,8 @@ function savedTheme() {
   }
 }
 
-function systemTheme() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+function defaultTheme() {
+  return 'light'
 }
 
 function applyTheme(theme) {
@@ -21,36 +21,27 @@ function applyTheme(theme) {
 }
 
 export default function useTheme() {
-  const [theme, setTheme] = useState(() => savedTheme() || systemTheme())
-  const manualChoice = useRef(Boolean(savedTheme()))
+  const [theme, setTheme] = useState(() => savedTheme() || defaultTheme())
 
   useEffect(() => {
     applyTheme(theme)
   }, [theme])
 
   useEffect(() => {
-    const media = window.matchMedia('(prefers-color-scheme: dark)')
-    const followSystem = () => {
-      if (!manualChoice.current) setTheme(systemTheme())
-    }
     const syncTabs = (event) => {
       if (event.key === storageKey || event.key === null) {
         const saved = savedTheme()
-        manualChoice.current = Boolean(saved)
-        setTheme(saved || systemTheme())
+        setTheme(saved || defaultTheme())
       }
     }
-    media.addEventListener('change', followSystem)
     window.addEventListener('storage', syncTabs)
     return () => {
-      media.removeEventListener('change', followSystem)
       window.removeEventListener('storage', syncTabs)
     }
   }, [])
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
-    manualChoice.current = true
     setTheme(next)
     try { window.localStorage.setItem(storageKey, next) } catch { /* The choice lasts for this visit. */ }
   }

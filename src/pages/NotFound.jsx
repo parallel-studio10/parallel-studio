@@ -5,7 +5,7 @@ import usePageMeta from '../hooks/usePageMeta.js'
 
 export default function NotFound() {
   const { pathname } = useLocation()
-  usePageMeta({ title: 'Page not found', path: pathname })
+  usePageMeta({ title: 'Page not found', path: pathname, robots: 'noindex, nofollow' })
   return (
     <Section>
       <Container>

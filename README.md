@@ -29,4 +29,4 @@ Project types, goals, budget currency and ranges, timeline and referral choices 
 
 Project metadata and case study narratives live in `src/data/projects.js` and `src/data/caseStudies.js`. Other content is kept in the corresponding `src/data/` modules. Contact logic lives in `src/lib/projectEnquiry.js` and the form component in `src/components/contact/`.
 
-Before publishing, confirm any unknown project details and approved imagery. Set the canonical site URL and social image when available. `public/robots.txt` currently blocks indexing during development. Configure the deployment host to serve `index.html` for direct visits to client-side routes.
+Before publishing, confirm any unknown project details and approved imagery. Set `VITE_SITE_URL` to the public site origin before building; it powers canonical URLs, social URLs and the generated sitemap. The build generates `dist/sitemap.xml` and a crawlable `dist/robots.txt` when that variable is available. Configure the deployment host to serve `index.html` for direct visits to client-side routes.

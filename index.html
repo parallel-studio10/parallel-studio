@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f2ec" />
+    <meta name="author" content="Sehjal Saxena &amp; Sambhav Jain" />
+    <meta name="robots" content="index, follow" />
     <script>
       (() => {
         let saved
         try { saved = localStorage.getItem('parallel-theme') } catch { /* Storage may be unavailable. */ }
-        const theme = saved === 'light' || saved === 'dark'
-          ? saved
-          : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        const theme = saved === 'light' || saved === 'dark' ? saved : 'light'
         document.documentElement.dataset.theme = theme
         document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#171c19' : '#f4f2ec'
       })()
     </script>
     <title>PARALLEL — Independent Digital Studio</title>
     <meta name="description" content="PARALLEL is an independent digital studio founded by Sehjal Saxena and Sambhav Jain. We design and build thoughtful websites and digital experiences for businesses." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PARALLEL" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="PARALLEL — Independent Digital Studio" />
+    <meta property="og:description" content="PARALLEL is an independent digital studio founded by Sehjal Saxena and Sambhav Jain. We design and build thoughtful websites and digital experiences for businesses." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="PARALLEL — Independent Digital Studio" />
+    <meta name="twitter:description" content="PARALLEL is an independent digital studio founded by Sehjal Saxena and Sambhav Jain. We design and build thoughtful websites and digital experiences for businesses." />
   </head>
   <body>
     <div id="root"></div>

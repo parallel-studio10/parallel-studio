@@ -54,7 +54,7 @@ function GuideHeading({ number, title, note }) {
 }
 
 export default function StyleGuide() {
-  usePageMeta({ title: 'Style Guide', path: '/styleguide' })
+  usePageMeta({ title: 'Style Guide', path: '/styleguide', robots: 'noindex, nofollow' })
 
   return (
     <>

@@ -6,7 +6,7 @@ export const site = {
   description: 'PARALLEL is an independent digital studio founded by Sehjal Saxena and Sambhav Jain. We design and build thoughtful websites and digital experiences for businesses.',
   brandLine: 'Design and development, in parallel.',
   location: 'India',
-  url: null,
+  url: import.meta.env.VITE_SITE_URL?.trim() || null,
   socialImage: null,
   email: import.meta.env.VITE_STUDIO_EMAIL?.trim() || 'workwithparallel0@gmail.com',
   contactEndpoint: import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || (import.meta.env.PROD ? 'https://formsubmit.co/ajax/workwithparallel0@gmail.com' : null),
