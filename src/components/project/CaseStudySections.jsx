@@ -84,7 +84,7 @@ export default function CaseStudySections({ project }) {
     if (section.type === 'narrative') return <NarrativeSection key={section.id} section={section} />
     if (section.type === 'features') return <FeatureSection key={section.id} section={section} />
     if (section.type === 'statement') return <StatementSection key={section.id} section={section} />
-    if (section.type === 'media') return <MediaSection key={section.id} section={section} project={project} />
+    if (section.type === 'media' && section.src) return <MediaSection key={section.id} section={section} project={project} />
     return null
   })
 }

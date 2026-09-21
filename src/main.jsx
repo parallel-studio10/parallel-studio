@@ -15,6 +15,8 @@ import './styles/pages.css'
 import './styles/styleguide.css'
 import './styles/home.css'
 import './styles/services.css'
+import './styles/about.css'
+import './styles/contact.css'
 import './styles/work.css'
 import './styles/case-study.css'
 

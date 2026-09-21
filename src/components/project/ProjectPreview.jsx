@@ -8,7 +8,7 @@ export default function ProjectPreview({ project, number = '01', layout = 'full'
 
   return (
     <article className={`project-preview project-preview--${layout}`}>
-      <div className="project-preview__media">
+      {layout !== 'editorial' && <div className="project-preview__media">
         <MediaFrame
           label={project.cover ? null : `Visual placeholder for ${project.title}`}
           captionHidden
@@ -22,7 +22,7 @@ export default function ProjectPreview({ project, number = '01', layout = 'full'
           placeholderEyebrow={`PARALLEL / ${number}`}
           placeholderTitle={project.title}
         />
-      </div>
+      </div>}
       <div className="project-preview__content">
         <div className="project-preview__heading">
           <SectionLabel number={number}>{contextLabel}</SectionLabel>

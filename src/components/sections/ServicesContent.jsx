@@ -11,7 +11,7 @@ function ServiceRow({ service }) {
       <div className="services-offering__main">
         <h3>{service.name}</h3>
         <p className="services-offering__lead">{service.description}</p>
-        <TextLink to="/contact" arrow>Discuss this service</TextLink>
+        <TextLink to={`/contact?service=${service.id}`} arrow>Discuss this service</TextLink>
       </div>
       <div className="services-offering__details">
         <div><h4>Who it is for</h4><p>{service.audience}</p></div>

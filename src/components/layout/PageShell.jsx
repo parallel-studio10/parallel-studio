@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import useTheme from '../../hooks/useTheme.js'
 import Header from '../navigation/Header.jsx'
 import Footer from './Footer.jsx'
 
 export default function PageShell({ children }) {
   const location = useLocation()
+  const { theme, toggleTheme } = useTheme()
   const mainRef = useRef(null)
   const previousPath = useRef(null)
 
@@ -26,7 +28,7 @@ export default function PageShell({ children }) {
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <Header />
+      <Header theme={theme} onThemeToggle={toggleTheme} />
       <main id="main-content" ref={mainRef} tabIndex="-1">{children}</main>
       <Footer />
     </div>

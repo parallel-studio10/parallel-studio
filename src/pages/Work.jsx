@@ -4,12 +4,10 @@ import { SectionLabel, TextLink } from '../components/ui/index.jsx'
 import { projects } from '../data/projects.js'
 import usePageMeta from '../hooks/usePageMeta.js'
 
-const layouts = ['full', 'split', 'split-reverse', 'split', 'split-reverse']
-
 export default function Work() {
   usePageMeta({
     title: 'Work',
-    description: 'Explore PARALLEL projects across digital products, interface design and independent commercial concepts.',
+    description: 'Explore StudyDump, an academic resource platform shaped through product strategy, interface design and development.',
     path: '/work',
   })
 
@@ -18,8 +16,8 @@ export default function Work() {
       <Section size="sm" className="work-intro" aria-labelledby="work-title">
         <Container>
           <SectionLabel number="01">Work</SectionLabel>
-          <h1 id="work-title">Selected work across product, design and development.</h1>
-          <p className="type-body-large">A selection of digital products, interface explorations and independent commercial concepts.</p>
+          <h1 id="work-title">Work with a clear purpose.</h1>
+          <p className="type-body-large">A closer look at StudyDump, an academic platform designed to make useful course material easier to find.</p>
         </Container>
       </Section>
       <section className="work-archive" aria-label="Project archive">
@@ -29,7 +27,7 @@ export default function Work() {
               key={project.slug}
               project={project}
               number={String(index + 1).padStart(2, '0')}
-              layout={layouts[index % layouts.length]}
+              layout="editorial"
               contextLabel="Project"
               linkText={project.caseStudy ? 'Read case study' : 'View concept'}
               showStatus
@@ -38,7 +36,7 @@ export default function Work() {
           ))}
         </Container>
       </section>
-      <Section size="lg" className="work-outro" aria-labelledby="work-outro-title">
+      <Section className="work-outro" aria-labelledby="work-outro-title">
         <Container className="work-outro__inner">
           <SectionLabel>Work with us</SectionLabel>
           <div>

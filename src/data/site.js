@@ -8,7 +8,8 @@ export const site = {
   location: 'India',
   url: null,
   socialImage: null,
-  email: null,
+  email: import.meta.env.VITE_STUDIO_EMAIL?.trim() || 'workwithparallel0@gmail.com',
+  contactEndpoint: import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || null,
   socialLinks: [],
   availability: null,
   navigation: [

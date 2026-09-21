@@ -1,12 +1,2 @@
 .page-intro { max-width: 64rem; gap: var(--space-5); }
 .page-intro .type-body-large { max-width: var(--reading-width); }
-.team-grid { display: grid; gap: var(--grid-gap); margin-top: var(--space-10); }
-.team-member { padding-top: var(--space-5); border-top: var(--border-width) solid var(--color-border); }
-.team-member h2 { font-size: var(--text-h3); }
-.tag-row { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); margin-top: var(--space-5); }
-.enquiry-outline { max-width: var(--reading-width); margin-top: var(--space-10); padding-top: var(--space-5); border-top: var(--border-width) solid var(--color-border); }
-.enquiry-outline h2 { font-size: var(--text-h3); margin-bottom: var(--space-4); }
-
-@media (min-width: 40rem) {
-  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}

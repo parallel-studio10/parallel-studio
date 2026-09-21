@@ -25,7 +25,6 @@ export const services = [
     problem: 'Visitors struggle to navigate, understand the offer or use the site comfortably on smaller screens.',
     deliverables: ['Current-site review', 'Content and navigation improvements', 'Interface redesign', 'Responsive rebuild or technical cleanup', 'Migration where appropriate'],
     nextStep: 'Send us the current website and the issues you see. We will assess what should stay and what should change.',
-    relatedProject: { label: 'Student Portal Redesign — independent concept', to: '/work/chitkara-student-portal-redesign' },
   },
   {
     id: 'ongoing-support', number: '04', name: 'Ongoing Support',

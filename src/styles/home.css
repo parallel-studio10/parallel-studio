@@ -29,8 +29,8 @@
 .home-section-heading--work h2 { font-size: var(--text-display); line-height: 0.98; }
 
 .home-work { border-top: var(--border-width) solid var(--color-border); }
-.home-work__projects { display: grid; gap: var(--section-lg); }
-.home-work__projects + .text-link { margin-top: var(--space-10); }
+.home-work .home-section-heading { margin-bottom: var(--space-7); }
+.home-work__projects { display: grid; gap: var(--space-8); }
 
 .home-statement { background: var(--color-bg-alt); }
 .home-statement__grid { row-gap: var(--space-8); padding-top: var(--space-8); }

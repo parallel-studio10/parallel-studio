@@ -9,7 +9,7 @@ export const homeContent = {
   },
   studio: {
     headline: 'PARALLEL is two people.',
-    description: 'We work directly across design, development and project delivery, keeping the process close, collaborative and focused.',
+    description: 'Founded by Sehjal Saxena and Sambhav Jain, the studio keeps design, development and project decisions close to the people doing the work.',
   },
   closing: {
     headline: 'Have something in mind?',

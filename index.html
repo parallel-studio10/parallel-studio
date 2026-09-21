@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f2ec" />
+    <script>
+      (() => {
+        let saved
+        try { saved = localStorage.getItem('parallel-theme') } catch { /* Storage may be unavailable. */ }
+        const theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#171c19' : '#f4f2ec'
+      })()
+    </script>
     <title>PARALLEL — Independent Digital Studio</title>
     <meta name="description" content="PARALLEL is an independent digital studio founded by Sehjal Saxena and Sambhav Jain. We design and build thoughtful websites and digital experiences for businesses." />
   </head>

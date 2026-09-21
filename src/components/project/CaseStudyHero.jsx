@@ -4,7 +4,7 @@ import MediaFrame from './MediaFrame.jsx'
 
 export default function CaseStudyHero({ project, number }) {
   return (
-    <Section size="lg" className="case-hero" aria-labelledby="case-title">
+    <Section size={project.cover ? 'lg' : 'md'} className="case-hero" aria-labelledby="case-title">
       <Container>
         <div className="case-hero__topline">
           <SectionLabel number={number}>{project.caseStudy ? 'Case Study' : 'Independent Concept'}</SectionLabel>
@@ -30,7 +30,7 @@ export default function CaseStudyHero({ project, number }) {
             {project.repositoryUrl && <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} repository (opens in a new tab)`}>View Repository ↗</a>}
           </div>
         )}
-        <div className="case-hero__media">
+        {project.cover && <div className="case-hero__media">
           <MediaFrame
             label={project.coverCaption || 'Project imagery is being prepared.'}
             ratio="wide"
@@ -43,7 +43,7 @@ export default function CaseStudyHero({ project, number }) {
             placeholderEyebrow={`PARALLEL / ${number}`}
             placeholderTitle={project.title}
           />
-        </div>
+        </div>}
       </Container>
     </Section>
   )
