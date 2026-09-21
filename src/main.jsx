@@ -14,6 +14,8 @@ import './styles/components.css'
 import './styles/pages.css'
 import './styles/styleguide.css'
 import './styles/home.css'
+import './styles/work.css'
+import './styles/case-study.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

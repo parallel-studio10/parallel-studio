@@ -1,6 +1,6 @@
-# PARALLEL studio site — Milestone 2
+# PARALLEL studio site — Milestone 3
 
-The homepage and design system for PARALLEL, an independent digital studio founded by Sehjal Saxena and Sambhav Jain. The Work archive, case studies, Services, About and Contact pages remain provisional for later milestones.
+The homepage, Work archive, case study system and design system for PARALLEL, an independent digital studio founded by Sehjal Saxena and Sambhav Jain. The Services, About and Contact pages remain provisional for later milestones.
 
 ## Run locally
 
@@ -13,12 +13,12 @@ Open the local URL printed by Vite. Use `npm run build` to check the production 
 
 ## Structure
 
-- `src/data/` holds the site settings, projects, services, team details and homepage copy.
-- `src/pages/Home.jsx` composes seven homepage sections. The other public routes remain provisional; `/styleguide` is an internal design reference.
+- `src/data/projects.js` defines project order, metadata and next-project navigation. `src/data/caseStudies.js` holds the long-form narratives. Other data modules hold site settings, services, team details and homepage copy.
+- `src/pages/Home.jsx` composes seven homepage sections. `Work.jsx` renders the archive, while `Project.jsx` resolves a slug into the shared `ProjectDetail.jsx` layout. Services, About and Contact remain provisional; `/styleguide` is an internal design reference.
 - `src/components/sections/` holds the hero, selected work, studio statement, services, process, founders and closing CTA.
-- `src/components/layout/`, `navigation/`, `project/` and `ui/` hold reusable building blocks.
+- `src/components/project/` holds previews, the case hero, reusable narrative sections, media treatment and next-project navigation.
 - `src/components/project/MediaFrame.jsx` accepts responsive picture sources when approved project imagery is ready; its current typographic surfaces are deliberate placeholders.
-- `src/styles/tokens.css` is the source of design values; `home.css` contains homepage composition and `styleguide.css` documents the visual examples.
+- `src/styles/tokens.css` is the source of design values; `home.css`, `work.css` and `case-study.css` contain page composition. `styleguide.css` documents the visual examples.
 - `src/hooks/usePageMeta.js` handles document titles, descriptions, canonical links and social metadata.
 - `src/assets/` is reserved for approved project assets.
 
@@ -33,13 +33,21 @@ Open the local URL printed by Vite. Use `npm run build` to check the production 
 ## Homepage
 
 - The editorial hero uses paired rules, staggered type and direct links to selected work and the contact route.
-- Three featured projects are read from `src/data/projects.js`. Only StudyDump has a confirmed year and scope; all three use typography in place of unapproved screenshots.
+- Three featured projects are read from `src/data/projects.js`. Only StudyDump has a confirmed year; all three use typography in place of unapproved screenshots.
 - Services and founder details come from their shared data modules. Motion is limited to CSS entry and hover effects, with a reduced-motion fallback.
 - The navigation, previews and all homepage sections adapt from narrow mobile through desktop without horizontal scrolling.
 
+## Work and case studies
+
+- `/work` presents all five projects as an editorial archive. The two commercial explorations are labeled Independent Concept and state that no client commissioned them.
+- StudyDump, Chitkara Student Portal Redesign and CASE//ZERO have distinct case studies grounded in known project context. The portal page clearly identifies itself as an unofficial independent redesign.
+- Concept routes stay functional with a controlled development state. Next-project links follow the order in `projects.js` and wrap back to the first project.
+- Narrative, feature, statement and media blocks are driven by project data. Media supports responsive image sources and captions when approved assets become available.
+- Project-specific contribution and external-link fields are supported but remain unfilled until authorship and URLs are confirmed.
+
 ## Before launch
 
-- Confirm the remaining project descriptions, dates, services, images and case studies in `src/data/projects.js`.
+- Confirm unknown dates, project-specific contributions, links and approved visual assets before publishing the relevant claims or media.
 - Set `site.url`, `site.socialImage`, email, social links and availability only when those details are confirmed.
 - Connect a real enquiry channel and complete the Contact page before presenting it as ready for submissions.
 - Replace `public/robots.txt` (currently blocks indexing during development), generate a sitemap and add any confirmed schema markup.

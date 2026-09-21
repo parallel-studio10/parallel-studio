@@ -38,6 +38,7 @@ export function Divider({ paired = false }) {
 export function ProjectMeta({ project }) {
   const items = [
     ['Category', project.category],
+    ['Type', project.type && project.type !== project.category ? project.type : null],
     ['Year', project.year],
     ['Services', project.services?.length ? project.services.join(' / ') : null],
     ['Status', project.status],

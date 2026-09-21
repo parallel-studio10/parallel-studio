@@ -18,7 +18,7 @@ function setMeta(attribute, key, content) {
   element.setAttribute('content', content)
 }
 
-export default function usePageMeta({ title, description = site.description, path = '', image = site.socialImage }) {
+export default function usePageMeta({ title, description = site.description, path = '', image = site.socialImage, type = 'website' }) {
   useEffect(() => {
     const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.descriptor}`
     const canonical = site.url ? new URL(path, site.url).toString() : null
@@ -26,7 +26,7 @@ export default function usePageMeta({ title, description = site.description, pat
 
     document.title = fullTitle
     setMeta('name', 'description', description)
-    setMeta('property', 'og:type', 'website')
+    setMeta('property', 'og:type', type)
     setMeta('property', 'og:title', fullTitle)
     setMeta('property', 'og:description', description)
     setMeta('property', 'og:url', canonical)
@@ -47,5 +47,5 @@ export default function usePageMeta({ title, description = site.description, pat
     } else {
       link?.remove()
     }
-  }, [title, description, path, image])
+  }, [title, description, path, image, type])
 }

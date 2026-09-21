@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import MediaFrame from './MediaFrame.jsx'
 import { SectionLabel, TextLink } from '../ui/index.jsx'
 
-export default function ProjectPreview({ project, number = '01', layout = 'full' }) {
+export default function ProjectPreview({ project, number = '01', layout = 'full', contextLabel = 'Selected Work', linkText = 'View project', showStatus = false, headingLevel = 3 }) {
   const projectUrl = `/work/${project.slug}`
+  const Heading = `h${headingLevel}`
 
   return (
     <article className={`project-preview project-preview--${layout}`}>
@@ -24,8 +25,9 @@ export default function ProjectPreview({ project, number = '01', layout = 'full'
       </div>
       <div className="project-preview__content">
         <div className="project-preview__heading">
-          <SectionLabel number={number}>Selected Work</SectionLabel>
-          <h3 className="project-preview__title"><Link to={projectUrl}>{project.title}</Link></h3>
+          <SectionLabel number={number}>{contextLabel}</SectionLabel>
+          <Heading className="project-preview__title"><Link to={projectUrl}>{project.title}</Link></Heading>
+          {showStatus && project.type && <p className="project-preview__type">{project.type}</p>}
         </div>
         <div className="project-preview__details">
           <p className="type-body-large">{project.description}</p>
@@ -33,8 +35,10 @@ export default function ProjectPreview({ project, number = '01', layout = 'full'
             <div><dt>Type</dt><dd>{project.category}</dd></div>
             <div><dt>Year</dt><dd>{project.year || 'To be confirmed'}</dd></div>
             <div><dt>Scope</dt><dd>{project.services?.length ? project.services.join(' / ') : 'Details to follow'}</dd></div>
+            {showStatus && project.status && <div><dt>Status</dt><dd>{project.status}</dd></div>}
           </dl>
-          <TextLink to={projectUrl} arrow>View project</TextLink>
+          {showStatus && project.disclaimer && <p className="project-preview__disclaimer">{project.disclaimer}</p>}
+          <TextLink to={projectUrl} arrow>{linkText}</TextLink>
         </div>
       </div>
     </article>
