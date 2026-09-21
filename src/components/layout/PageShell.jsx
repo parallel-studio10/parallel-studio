@@ -9,12 +9,19 @@ export default function PageShell({ children }) {
   const previousPath = useRef(null)
 
   useEffect(() => {
-    if (previousPath.current && previousPath.current !== location.pathname) {
+    const pathChanged = previousPath.current && previousPath.current !== location.pathname
+    if (location.hash) {
+      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)))
+      if (target) {
+        target.scrollIntoView()
+        target.focus({ preventScroll: true })
+      }
+    } else if (pathChanged) {
       window.scrollTo(0, 0)
       mainRef.current?.focus({ preventScroll: true })
     }
     previousPath.current = location.pathname
-  }, [location.pathname])
+  }, [location.pathname, location.hash])
 
   return (
     <div className="site-shell">

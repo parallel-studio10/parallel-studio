@@ -55,6 +55,7 @@
 .home-process__number { color: var(--color-accent); font-size: var(--text-meta); font-weight: 700; }
 .home-process__steps h3 { margin-bottom: var(--space-3); }
 .home-process__steps p { max-width: 20rem; color: var(--color-muted); }
+.home-process__link { margin-top: var(--space-8); }
 
 .home-studio__intro { display: grid; gap: var(--space-7); }
 .home-studio__intro > div { display: grid; gap: var(--space-6); }
@@ -106,7 +107,7 @@
   .home-service-row { grid-template-columns: 4rem minmax(0, 3fr) minmax(0, 2fr) 2rem; gap: var(--grid-gap); align-items: center; }
   .home-service-row p { grid-column: 3; grid-row: 1; }
   .home-service-row > .action-arrow { grid-column: 4; }
-  .home-process__steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .home-process__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 47.99rem) {

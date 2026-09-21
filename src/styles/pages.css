@@ -1,9 +1,5 @@
 .page-intro { max-width: 64rem; gap: var(--space-5); }
 .page-intro .type-body-large { max-width: var(--reading-width); }
-.service-list { list-style: none; margin-top: var(--space-10); border-top: var(--border-width) solid var(--color-border); }
-.service-list li { display: grid; gap: var(--space-3); padding-block: var(--space-5); border-bottom: var(--border-width) solid var(--color-border); }
-.service-list h2 { font-size: var(--text-h3); }
-.service-list p { max-width: var(--reading-width); color: var(--color-muted); }
 .team-grid { display: grid; gap: var(--grid-gap); margin-top: var(--space-10); }
 .team-member { padding-top: var(--space-5); border-top: var(--border-width) solid var(--color-border); }
 .team-member h2 { font-size: var(--text-h3); }
@@ -12,6 +8,5 @@
 .enquiry-outline h2 { font-size: var(--text-h3); margin-bottom: var(--space-4); }
 
 @media (min-width: 40rem) {
-  .service-list li { grid-template-columns: minmax(12rem, 1fr) minmax(0, 1fr); gap: var(--grid-gap); }
   .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

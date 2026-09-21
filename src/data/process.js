@@ -1,0 +1,8 @@
+export const process = [
+  { id: 'discover', number: '01', title: 'Discover', description: 'We learn about the business, its audience, the current problems and what the website needs to achieve.', detail: 'Goals, available content, references, technical needs and constraints all come into the conversation.' },
+  { id: 'define', number: '02', title: 'Define', description: 'We turn that understanding into an agreed plan before design begins.', detail: 'Pages, functionality, content needs, deliverables, timeline and feedback stages are documented.' },
+  { id: 'design', number: '03', title: 'Design', description: 'We work through the site structure and visual direction, then design the key layouts and responsive behavior.', detail: 'You review the important decisions at clear checkpoints before development moves forward.' },
+  { id: 'develop', number: '04', title: 'Develop', description: 'Approved designs become a working website, with design and engineering considered together throughout the build.', detail: 'We implement the interface, required integrations and functionality, then test and refine it.' },
+  { id: 'launch', number: '05', title: 'Launch', description: 'We prepare the release with final checks across devices, links, forms and core interactions.', detail: 'Metadata, analytics where included, deployment and handover are addressed before the site goes live.' },
+  { id: 'support', number: '06', title: 'Support', description: 'After launch, we can help with fixes, updates and future improvements.', detail: 'Ongoing support is optional and agreed as a separate scope based on what the website needs.' },
+]
