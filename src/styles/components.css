@@ -88,7 +88,7 @@
 .project-preview { display: grid; gap: var(--space-5); padding-top: var(--space-5); border-top: var(--border-width) solid var(--color-border); }
 .project-preview--full .media-frame__title { font-size: clamp(2.25rem, 7vw, 8rem); }
 .project-preview--editorial { padding-block: var(--space-6) var(--space-8); border-bottom: var(--border-width) solid var(--color-border); }
-.project-preview--editorial .project-preview__title { font-size: clamp(2.75rem, 5vw, 5.5rem); line-height: 1; }
+.project-preview--editorial .project-preview__title { font-size: clamp(2.5rem, 4.2vw, 4.5rem); line-height: 1; }
 .project-preview--editorial .project-preview__details { max-width: 42rem; }
 .project-preview__content { display: grid; gap: var(--space-6); }
 .project-preview__heading { display: grid; gap: var(--space-4); align-content: start; }

@@ -24,8 +24,8 @@
   --font-body: 'DM Sans Variable', Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 
-  --text-display-xl: clamp(2.75rem, 10vw, 10rem);
-  --text-display: clamp(2.5rem, 7.2vw, 7rem);
+  --text-display-xl: clamp(2.75rem, 8vw, 8rem);
+  --text-display: clamp(2.5rem, 5.8vw, 5.75rem);
   --text-h1: clamp(2.25rem, 5.4vw, 5.25rem);
   --text-h2: clamp(2rem, 3.8vw, 3.6rem);
   --text-h3: clamp(1.5rem, 2.2vw, 2.1rem);
@@ -54,10 +54,10 @@
   --page-gutter: clamp(1.25rem, 4.5vw, 5rem);
   --grid-gap: clamp(var(--space-3), 2vw, var(--space-6));
   --grid-columns: 4;
-  --section-sm: clamp(3rem, 5vw, 5rem);
-  --section-md: clamp(5rem, 8vw, 8rem);
-  --section-lg: clamp(7rem, 11vw, 11rem);
-  --section-xl: clamp(8rem, 14vw, 14rem);
+  --section-sm: clamp(2.75rem, 4vw, 4rem);
+  --section-md: clamp(4rem, 6vw, 6rem);
+  --section-lg: clamp(5.5rem, 8vw, 8rem);
+  --section-xl: clamp(6rem, 10vw, 10rem);
   --navigation-height: 5.25rem;
 
   --border-width: 1px;
@@ -103,10 +103,10 @@
 @media (max-width: 47.99rem) {
   :root {
     --grid-gap: clamp(var(--space-3), 4vw, var(--space-5));
-    --section-sm: clamp(2.75rem, 8vw, 4rem);
-    --section-md: clamp(4rem, 11vw, 6rem);
-    --section-lg: clamp(5rem, 14vw, 8rem);
-    --section-xl: clamp(6rem, 18vw, 9rem);
+    --section-sm: clamp(2.5rem, 6vw, 3.5rem);
+    --section-md: clamp(3.5rem, 9vw, 5rem);
+    --section-lg: clamp(4.5rem, 12vw, 6.5rem);
+    --section-xl: clamp(5rem, 15vw, 7.5rem);
   }
 }
 

@@ -10,7 +10,7 @@
   width: 100%;
   margin: var(--space-4) 0;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8.6vw, 9.5rem);
+  font-size: clamp(2.5rem, 7.5vw, 8rem);
   font-weight: 600;
   line-height: 0.91;
   letter-spacing: -0.078em;
@@ -23,7 +23,7 @@
 .home-hero__intro { display: grid; gap: var(--space-6); max-width: 37rem; }
 .home-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5) var(--space-7); }
 
-.home-section-heading { display: grid; gap: var(--space-4); margin-bottom: var(--space-10); }
+.home-section-heading { display: grid; gap: var(--space-4); margin-bottom: var(--space-8); }
 .home-section-heading h2 { max-width: 55rem; }
 .home-section-heading p { max-width: var(--reading-width); color: var(--color-muted); font-size: var(--text-body-large); }
 .home-section-heading--work h2 { font-size: var(--text-display); line-height: 0.98; }
@@ -69,7 +69,7 @@
 .home-founder li:not(:last-child)::after { content: '/'; margin-left: var(--space-4); }
 
 .home-cta__content { display: grid; gap: var(--space-8); margin-top: var(--space-8); padding-top: var(--space-7); border-top: var(--border-width) solid var(--color-inverse-border); }
-.home-cta h2 { display: grid; gap: var(--space-2); max-width: 72rem; font-size: clamp(3rem, 7.5vw, 7.5rem); line-height: 0.96; }
+.home-cta h2 { display: grid; gap: var(--space-2); max-width: 72rem; font-size: clamp(2.75rem, 6.5vw, 6.5rem); line-height: 0.96; }
 .home-cta__action { display: grid; align-content: end; justify-items: start; gap: var(--space-6); max-width: 29rem; }
 .home-cta__action p { color: var(--color-inverse-muted); }
 .home-cta .button--primary { background: var(--color-inverse-fg); color: var(--color-inverse-bg); }
