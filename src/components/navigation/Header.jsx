@@ -22,7 +22,7 @@ export default function Header({ theme, onThemeToggle }) {
         <Link className="site-mark" to="/" onClick={closeMenu} aria-label={`${site.shortName}, home`}>
           <Wordmark />
         </Link>
-        <nav id="primary-navigation" className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
+        <nav id="primary-navigation" className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation" data-lenis-prevent>
           {site.navigation.map(({ label, to }) => (
             <NavLink key={to} to={to} onClick={closeMenu} className={({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`}>
               {label}
