@@ -1,6 +1,7 @@
 export const site = {
   name: 'PARALLEL',
   shortName: 'PARALLEL',
+  logoUrl: 'https://madeinparallel.vercel.app/',
   descriptor: 'Independent Digital Studio',
   founders: 'Sehjal Saxena & Sambhav Jain',
   description: 'PARALLEL is an independent digital studio founded by Sehjal Saxena and Sambhav Jain. We design and build thoughtful websites and digital experiences for businesses.',

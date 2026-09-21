@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { site } from '../../data/site.js'
 import { Container } from '../layout/Primitives.jsx'
 import Wordmark from '../ui/Wordmark.jsx'
@@ -19,9 +19,9 @@ export default function Header({ theme, onThemeToggle }) {
   return (
     <header className="site-header" onKeyDown={handleMenuKeyDown}>
       <Container className="header-inner">
-        <Link className="site-mark" to="/" onClick={closeMenu} aria-label={`${site.shortName}, home`}>
-          <Wordmark />
-        </Link>
+        <a className="site-mark" href={site.logoUrl} onClick={closeMenu} aria-label={`${site.shortName}, home`}>
+          <Wordmark image />
+        </a>
         <nav id="primary-navigation" className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation" data-lenis-prevent>
           {site.navigation.map(({ label, to }) => (
             <NavLink key={to} to={to} onClick={closeMenu} className={({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`}>

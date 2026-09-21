@@ -9,7 +9,7 @@ export default function Footer() {
       <Container className="footer-inner">
         <div className="footer-top">
           <Stack className="footer-intro">
-            <p className="footer-name"><Wordmark /></p>
+            <p className="footer-name"><a className="footer-mark" href={site.logoUrl} aria-label={`${site.shortName}, home`}><Wordmark image /></a></p>
             <p>{site.descriptor}</p>
             {site.availability && <p className="text-muted">{site.availability}</p>}
           </Stack>
