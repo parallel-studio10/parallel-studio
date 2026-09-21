@@ -32,8 +32,8 @@
 .contact-form :is(input, textarea)[aria-invalid='true'], .contact-form__choices[aria-invalid='true'] { border-bottom-color: var(--color-accent); }
 .contact-form__error { color: var(--color-accent); font-size: var(--text-small); font-weight: 700; }
 .contact-form__choices legend { width: 100%; padding: 0; }
-.contact-form__legend-title { display: block; margin-bottom: var(--space-2); font-family: var(--font-display); font-size: var(--text-h3); font-weight: 600; letter-spacing: -0.035em; line-height: 1.18; }
-.contact-form__legend-title small { margin-left: var(--space-2); font-family: var(--font-body); letter-spacing: 0.05em; white-space: nowrap; }
+.contact-form__legend-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin-bottom: var(--space-2); font-family: var(--font-display); font-size: var(--text-h3); font-weight: 600; letter-spacing: -0.035em; line-height: 1.18; }
+.contact-form__legend-title small { margin-left: 0; font-family: var(--font-body); letter-spacing: 0.05em; white-space: normal; }
 .contact-form__option-grid, .contact-form__goal-grid { display: grid; gap: var(--space-2) var(--grid-gap); margin-top: var(--space-5); }
 .contact-form__option { display: flex; align-items: center; gap: var(--space-4); min-height: 3.5rem; padding: var(--space-3); border: var(--border-width) solid var(--color-border); cursor: pointer; font-weight: 600; line-height: 1.35; }
 .contact-form__option:hover { border-color: var(--color-fg); }

@@ -17,9 +17,11 @@ The header appearance control follows the visitor's system theme until they choo
 
 The public studio email is set in `src/data/site.js` and can be overridden with `VITE_STUDIO_EMAIL`. The current address is `workwithparallel0@gmail.com`.
 
-The form sends JSON only when `VITE_CONTACT_ENDPOINT` contains a real URL. The endpoint must accept a `POST` request with `Content-Type: application/json` and return a 2xx response only after it has stored or delivered the enquiry. It must validate data, handle spam and rate limiting, and keep email credentials and other secrets on the server. Vite exposes every `VITE_*` value in the browser, so put only public configuration there.
+The production form uses FormSubmit's cross-origin AJAX endpoint at `https://formsubmit.co/ajax/workwithparallel0@gmail.com`. FormSubmit will send an activation email the first time the endpoint receives a submission; confirm that email before relying on the form in production. The endpoint can be replaced with `VITE_CONTACT_ENDPOINT` if a different provider is needed. The form sends JSON with an application/json content type and an explicit Accept header.
 
-Without an endpoint, development mode validates the form and shows a clearly labeled preview. A production build prepares a `mailto:` draft addressed to the studio; the visitor must open and send that draft from their email app. A direct email link remains available on the page.
+FormSubmit's own spam controls remain enabled and the payload includes its honeypot field. The form also validates on the client, but any replacement endpoint must validate data, handle spam and rate limiting, and keep email credentials and other secrets on the server. Vite exposes every `VITE_*` value in the browser, so put only public configuration there.
+
+In development, the default configuration remains in preview mode so local testing does not send real enquiries. A production build uses FormSubmit. If the endpoint configuration is changed to `null`, the existing email-draft fallback remains available. A direct email link remains on the page.
 
 Project types, goals, budget currency and ranges, timeline and referral choices are editable in `src/data/contact.js`. Services links pass a `service` query parameter to preselect a matching project type.
 

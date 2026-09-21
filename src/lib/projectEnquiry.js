@@ -64,6 +64,26 @@ export function buildEnquiryEmail(data, email) {
   return `mailto:${email}?subject=${encodeURIComponent(`Project enquiry — ${data.projectType}`)}&body=${encodeURIComponent(lines.join('\n'))}`
 }
 
+export function buildFormSubmitPayload(data) {
+  const labelFor = (options, value) => options.find((option) => option.value === value)?.label || value
+  return {
+    _subject: `New PARALLEL project enquiry — ${labelFor(projectTypes, data.projectType)}`,
+    _template: 'table',
+    _honey: '',
+    name: data.name,
+    email: data.email,
+    company: data.company,
+    website: data.website,
+    projectType: labelFor(projectTypes, data.projectType),
+    description: data.description,
+    goals: data.goals.join(', '),
+    functionality: data.functionality,
+    budget: data.budget ? `${labelFor(budgetOptions.choices, data.budget)} (${data.budgetCurrency})` : '',
+    timeline: labelFor(timelineOptions, data.timeline),
+    referralSource: labelFor(referralOptions, data.referralSource),
+  }
+}
+
 export async function submitProjectEnquiry(data, { endpoint, preview = false, fetcher = fetch } = {}) {
   if (!endpoint) {
     if (!preview) throw new Error('Project enquiry submission is not configured.')
@@ -73,10 +93,14 @@ export async function submitProjectEnquiry(data, { endpoint, preview = false, fe
 
   const response = await fetcher(endpoint, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(buildFormSubmitPayload(data)),
   })
 
   if (!response.ok) throw new Error('Project enquiry could not be sent.')
+  if (typeof response.json === 'function') {
+    const result = await response.json().catch(() => null)
+    if (result?.success === false) throw new Error('Project enquiry could not be sent.')
+  }
   return { status: 'sent' }
 }

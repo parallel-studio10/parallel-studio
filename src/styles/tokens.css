@@ -6,8 +6,8 @@
   --color-fg: #20231f;
   --color-muted: #565b55;
   --color-border: #b8bcb3;
-  --color-accent: #8b4a32;
-  --color-selection: #e3cfbf;
+  --color-accent: #245b73;
+  --color-selection: #c8dce2;
   --color-inverse-bg: #1e241f;
   --color-inverse-fg: #f4f2ec;
   --color-inverse-muted: #bdc4ba;
@@ -77,8 +77,8 @@
   --color-fg: #e9ebe4;
   --color-muted: #b5beb5;
   --color-border: #505a52;
-  --color-accent: #d9a889;
-  --color-selection: #76513e;
+  --color-accent: #9fc7d2;
+  --color-selection: #355461;
   --color-inverse-bg: #2c3a30;
   --color-inverse-fg: #ecede5;
   --color-inverse-muted: #c0cabf;
@@ -98,4 +98,25 @@
 
 @media (min-width: 75rem) {
   :root { --grid-columns: 12; }
+}
+
+@media (max-width: 47.99rem) {
+  :root {
+    --grid-gap: clamp(var(--space-3), 4vw, var(--space-5));
+    --section-sm: clamp(2.75rem, 8vw, 4rem);
+    --section-md: clamp(4rem, 11vw, 6rem);
+    --section-lg: clamp(5rem, 14vw, 8rem);
+    --section-xl: clamp(6rem, 18vw, 9rem);
+  }
+}
+
+@media (max-width: 30rem) {
+  :root {
+    --page-gutter: 1rem;
+    --grid-gap: 1rem;
+    --section-sm: 2.5rem;
+    --section-md: 3.75rem;
+    --section-lg: 5rem;
+    --section-xl: 6rem;
+  }
 }

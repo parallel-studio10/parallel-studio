@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { emptyEnquiry } from '../data/contact.js'
-import { buildEnquiryEmail, normalizeWebsite, prepareEnquiry, submitProjectEnquiry, validateEnquiry } from './projectEnquiry.js'
+import { buildEnquiryEmail, buildFormSubmitPayload, normalizeWebsite, prepareEnquiry, submitProjectEnquiry, validateEnquiry } from './projectEnquiry.js'
 
 const validEnquiry = {
   ...emptyEnquiry,
@@ -50,13 +50,20 @@ test('submission reports success only for a successful endpoint response', async
   let captured
   const fetcher = async (url, options) => {
     captured = { url, options }
-    return { ok: true }
+    return { ok: true, json: async () => ({ success: true }) }
   }
   const prepared = prepareEnquiry(validEnquiry)
   assert.deepEqual(await submitProjectEnquiry(prepared, { endpoint: '/api/enquiries', fetcher }), { status: 'sent' })
   assert.equal(captured.url, '/api/enquiries')
   assert.equal(captured.options.method, 'POST')
-  assert.deepEqual(JSON.parse(captured.options.body), prepared)
+  assert.deepEqual(JSON.parse(captured.options.body), buildFormSubmitPayload(prepared))
+  assert.equal(captured.options.headers.Accept, 'application/json')
+  const formSubmitPayload = JSON.parse(captured.options.body)
+  assert.equal(formSubmitPayload._subject, 'New PARALLEL project enquiry — Website Redesign')
+  assert.equal(formSubmitPayload.projectType, 'Website Redesign')
+  assert.equal(formSubmitPayload.goals, 'Generate enquiries')
+  assert.equal(formSubmitPayload.budget, '₹30,000–₹60,000 (INR)')
   await assert.rejects(submitProjectEnquiry(prepared, { endpoint: '/api/enquiries', fetcher: async () => ({ ok: false }) }))
+  await assert.rejects(submitProjectEnquiry(prepared, { endpoint: '/api/enquiries', fetcher: async () => ({ ok: true, json: async () => ({ success: false }) }) }))
   await assert.rejects(submitProjectEnquiry(prepared, {}))
 })

@@ -9,7 +9,7 @@ export const site = {
   url: null,
   socialImage: null,
   email: import.meta.env.VITE_STUDIO_EMAIL?.trim() || 'workwithparallel0@gmail.com',
-  contactEndpoint: import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || null,
+  contactEndpoint: import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || (import.meta.env.PROD ? 'https://formsubmit.co/ajax/workwithparallel0@gmail.com' : null),
   socialLinks: [],
   availability: null,
   navigation: [
