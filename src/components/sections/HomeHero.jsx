@@ -2,6 +2,7 @@ import { Container } from '../layout/Primitives.jsx'
 import { Button, Divider, SectionLabel, TextLink } from '../ui/index.jsx'
 import { homeContent } from '../../data/home.js'
 import { site } from '../../data/site.js'
+import ParallelPlanes from './ParallelPlanes.jsx'
 
 export default function HomeHero() {
   return (
@@ -22,7 +23,10 @@ export default function HomeHero() {
       </section>
       <section className="home-hero__followup" aria-label="Studio introduction">
         <Container className="home-hero__bottom-grid">
-          <p className="home-hero__index">PARALLEL / {site.location}</p>
+          <div className="home-hero__identity">
+            <p className="home-hero__index">PARALLEL / {site.location}</p>
+            <ParallelPlanes />
+          </div>
           <div className="home-hero__intro">
             <p className="type-body-large">{homeContent.hero.introduction}</p>
             <div className="home-hero__actions">

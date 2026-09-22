@@ -1,5 +1,4 @@
-/* Motion communicates hierarchy or response. It stays subtle, avoids loops and scroll effects,
-   and every control remains usable when transitions are removed. */
+/* Motion supports navigation and scroll depth; controls remain usable when motion is reduced. */
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
