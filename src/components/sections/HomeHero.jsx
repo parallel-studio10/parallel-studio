@@ -2,6 +2,7 @@ import { Container } from '../layout/Primitives.jsx'
 import { Button, Divider, SectionLabel, TextLink } from '../ui/index.jsx'
 import { homeContent } from '../../data/home.js'
 import { site } from '../../data/site.js'
+import HeroCursor from './HeroCursor.jsx'
 import ParallelPlanes from './ParallelPlanes.jsx'
 
 export default function HomeHero() {
@@ -16,6 +17,7 @@ export default function HomeHero() {
           <h1 id="home-title" className="home-hero__headline">
             {homeContent.hero.headline.map((line) => <span key={line}>{line}</span>)}
           </h1>
+          <HeroCursor />
           <div className="home-hero__divider">
             <Divider paired />
           </div>
