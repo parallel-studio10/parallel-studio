@@ -1,11 +1,13 @@
 import { Container, Section } from '../layout/Primitives.jsx'
 import { Button, SectionLabel } from '../ui/index.jsx'
 import { homeContent } from '../../data/home.js'
+import CTAPortal3D from './CTAPortal3D.jsx'
 
 export default function FinalCTA() {
   return (
     <Section tone="dark" size="lg" className="home-cta" aria-labelledby="home-cta-title">
-      <Container>
+      <CTAPortal3D />
+      <Container className="home-cta__inner">
         <SectionLabel number="05">Start a Project</SectionLabel>
         <div className="home-cta__content">
           <h2 id="home-cta-title">
@@ -21,3 +23,4 @@ export default function FinalCTA() {
     </Section>
   )
 }
+

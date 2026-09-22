@@ -1,13 +1,102 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MediaFrame from './MediaFrame.jsx'
 import { SectionLabel, TextLink } from '../ui/index.jsx'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectPreview({ project, number = '01', layout = 'full', contextLabel = 'Selected Work', linkText = 'View project', showStatus = false, headingLevel = 3 }) {
   const projectUrl = `/work/${project.slug}`
   const Heading = `h${headingLevel}`
+  const cardRef = useRef(null)
+
+  useEffect(() => {
+    const card = cardRef.current
+    if (!card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+
+    const context = gsap.context(() => {
+      // 3D scroll-driven entrance and depth shift
+      gsap.fromTo(
+        card,
+        {
+          rotateX: 10,
+          rotateY: -3,
+          z: -30,
+          scale: 0.98,
+        },
+        {
+          rotateX: 0,
+          rotateY: 0,
+          z: 0,
+          scale: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            end: 'top 45%',
+            scrub: 0.7,
+            invalidateOnRefresh: true,
+          },
+        }
+      )
+
+      // Subtle parallax on facts and heading
+      const facts = card.querySelector('.project-preview__facts')
+      if (facts) {
+        gsap.fromTo(
+          facts,
+          { y: 20, opacity: 0.8 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 80%',
+              end: 'top 30%',
+              scrub: 0.6,
+            },
+          }
+        )
+      }
+    }, card)
+
+    const handleMouseMove = (e) => {
+      const rect = card.getBoundingClientRect()
+      const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2)
+      const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2)
+      gsap.to(card, {
+        rotateY: x * 4,
+        rotateX: -y * 4,
+        duration: 0.4,
+        ease: 'power1.out',
+        transformPerspective: 1200,
+      })
+    }
+
+    const handleMouseLeave = () => {
+      gsap.to(card, {
+        rotateY: 0,
+        rotateX: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      })
+    }
+
+    card.addEventListener('mousemove', handleMouseMove)
+    card.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      card.removeEventListener('mousemove', handleMouseMove)
+      card.removeEventListener('mouseleave', handleMouseLeave)
+      context.revert()
+    }
+  }, [])
 
   return (
-    <article className={`project-preview project-preview--${layout}`}>
+    <article ref={cardRef} className={`project-preview project-preview--${layout} project-preview--3d`}>
       {layout !== 'editorial' && <div className="project-preview__media">
         <MediaFrame
           label={project.cover ? null : `Visual placeholder for ${project.title}`}
@@ -44,3 +133,4 @@ export default function ProjectPreview({ project, number = '01', layout = 'full'
     </article>
   )
 }
+
